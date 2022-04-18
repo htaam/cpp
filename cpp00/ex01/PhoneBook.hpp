@@ -12,8 +12,6 @@ public:
 private:
 	int count;
 	Contact list[8];
-	void	display_all_small(void);
-	void	display_one_full(void);
 };
 
 #endif

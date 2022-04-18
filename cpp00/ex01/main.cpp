@@ -29,6 +29,7 @@ int main(){
 		{
 			std::cout << "Invalid Input.";
 		}
-		std::cout << "Please input a new command [ADD, SEARCH, EXIT]:";
+		if (run)
+			std::cout << "Please input a new command [ADD, SEARCH, EXIT]:";
 	}
 }
