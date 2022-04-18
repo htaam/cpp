@@ -14,11 +14,11 @@ int main(){
 		std::cin >> command;
 		if (command  == "ADD")
 		{
-			phonebookadd();
+			phonebook.add();
 		}
 		else if (command  == "SEARCH")
 		{
-			;
+			phonebook.search();
 		}
 		else if (command  == "EXIT")
 		{
@@ -27,7 +27,8 @@ int main(){
 		}
 		else 
 		{
-			std::cout << "Invalid Input. Please input a new command [ADD, SEARCH, EXIT]:";
+			std::cout << "Invalid Input.";
 		}
+		std::cout << "Please input a new command [ADD, SEARCH, EXIT]:";
 	}
 }

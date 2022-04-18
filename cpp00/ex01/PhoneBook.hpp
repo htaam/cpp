@@ -6,8 +6,8 @@ class PhoneBook{
 public:
 	PhoneBook( int a1 );
 	~PhoneBook( void );
-	void	add(void);
-	void	search(void);
+	void	add();
+	void	search();
 	
 private:
 	int count;
