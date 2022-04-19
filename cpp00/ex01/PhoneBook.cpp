@@ -50,15 +50,9 @@ void PhoneBook::search(void){
 		{
 			std::cout << "\nInvalid Index, Please select a valid one :";
 			std::cin >> a;
-			if (a > 0 && a < 9)
-			{
-				if (list[a - 1].is_filled() == 1)
-					break;
-				else
-					a = 10;
-			}
+			
 		}
-
+		
 		list[a - 1].long_info();
 	}
 }
