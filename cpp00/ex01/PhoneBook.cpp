@@ -24,7 +24,7 @@ void PhoneBook::add(void){
 }
 
 void PhoneBook::search(void){
-	int a;
+	int b;
 	int n = 0;
 	int i;
 	if (!list[0].is_filled())
@@ -45,14 +45,24 @@ void PhoneBook::search(void){
 			}
 		}
 		std::cout << "Please select a index :";
-		std::cin >> a;
-		while (a < 1 || a > 8)
-		{
-			std::cout << "\nInvalid Index, Please select a valid one :";
-			std::cin >> a;
-			
-		}
 		
-		list[a - 1].long_info();
+		while (true)
+		{
+			if( ! (std::cin >> b) )
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "Invalid input. Try again: ";
+			}
+			else if (b < 1 || b > 8 || list[b-1].is_filled() == 0)
+			{
+				std::cout << "Invalid input. Try again: ";
+			}
+			else
+			{
+				break;
+			}
+		}
+		list[b - 1].long_info();
 	}
 }

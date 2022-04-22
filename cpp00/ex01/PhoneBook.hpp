@@ -11,7 +11,7 @@ public:
 	
 private:
 	int count;
-	Contact list[8];
+	Contact list[8]; 
 };
 
 #endif

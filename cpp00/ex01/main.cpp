@@ -27,7 +27,7 @@ int main(){
 		}
 		else 
 		{
-			std::cout << "Invalid Input.";
+			std::cout << "Invalid Input. ";
 		}
 		if (run)
 			std::cout << "Please input a new command [ADD, SEARCH, EXIT]:";

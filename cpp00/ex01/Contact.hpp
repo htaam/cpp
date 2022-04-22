@@ -17,11 +17,11 @@ public:
 	int is_filled(void);
 
 private:
-	std::string	FirstName;
-	std::string	LastName;
-	std::string	NickName;
-	std::string	PhoneNumber;
-	std::string	DarkestSecret;
+	std::string				FirstName;
+	std::string				LastName;
+	std::string				NickName;
+	std::string				PhoneNumber;
+	std::string				DarkestSecret;
 };
 
 #endif
