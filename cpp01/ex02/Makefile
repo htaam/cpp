@@ -1,13 +1,11 @@
-NAME = zombie
+NAME = brain
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp\
-		Zombie.cpp\
-		newZombie.cpp\
-		randomChump.cpp
+
 OBJS = $(SRC:.c=.o)
 
 RED = \033[0;31m

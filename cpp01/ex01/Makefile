@@ -6,8 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp\
 		Zombie.cpp\
-		newZombie.cpp\
-		randomChump.cpp
+		zombieHorde.cpp
 OBJS = $(SRC:.c=.o)
 
 RED = \033[0;31m
