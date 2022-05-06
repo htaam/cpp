@@ -1,7 +1,7 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string newName , Weapon &weapon ):  Arm(weapon), name(newName){
-
+HumanA::HumanA( std::string newName ,  std::string weapon_name ):  name(newName){
+	Arm.setType(weapon_name);
 	return ;
 }
 
