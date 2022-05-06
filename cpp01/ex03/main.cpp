@@ -3,10 +3,11 @@
 
 int main()
 {
+    
     Weapon Axe;
     Axe.setType("Axe");
-    std::cout<< Axe.getType()<< std::endl;
-
+    /*std::cout<< Axe.getType()<< std::endl;
+*/
     HumanA One("One", Axe);
     One.attack();
     

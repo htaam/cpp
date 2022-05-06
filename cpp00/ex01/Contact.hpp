@@ -20,7 +20,7 @@ private:
 	std::string				FirstName;
 	std::string				LastName;
 	std::string				NickName;
-	std::string				PhoneNumber;
+	int						PhoneNumber;
 	std::string				DarkestSecret;
 };
 

@@ -19,7 +19,21 @@ void Contact::add(void)
 	std::cout << "What is the Nickname? ";
 	std::cin >> NickName;
 	std::cout << "What is the Phone Number? ";
-	std::cin >> PhoneNumber;
+
+	while (true)
+	{
+		if( ! (std::cin >> PhoneNumber) )
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input. Try again: ";
+		}			
+		else
+		{
+			break;
+		}
+	}
+	
 	std::cout << "What is the Darkest Secret? ";
 	std::cin >> DarkestSecret;
 
