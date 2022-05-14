@@ -7,7 +7,7 @@ Weapon::Weapon( void ){
 
 
 Weapon::~Weapon(void){
-	std::cout << type << " is destroided\n";
+	std::cout << type << " is destroyed\n";
 	return ;
 }
 

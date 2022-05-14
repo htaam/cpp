@@ -1,18 +1,17 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string newName ,  std::string weapon_name ):  name(newName){
-	Arm.setType(weapon_name);
+HumanA::HumanA( std::string newName ,  Weapon &weapon_ref ):  name(newName), Arm_ref(weapon_ref){
 	return ;
 }
 
 
 HumanA::~HumanA(void){
-	std::cout << name << " is destroided\n";
+	std::cout << name << " is destroyed\n";
 	return ;
 }
 
 
 void HumanA::attack( void ){
     
-    std::cout << this->name << " attacks with their " << this->Arm.getType() << std::endl;
+    std::cout << this->name << " attacks with their " << this->Arm_ref.getType() << std::endl;
 }

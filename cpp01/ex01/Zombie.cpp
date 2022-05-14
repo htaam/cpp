@@ -7,7 +7,7 @@ Zombie::Zombie(void) : name(""){
 
 
 Zombie::~Zombie(void){
-	std::cout << name << " is destroided\n";
+	std::cout << name << " is destroyed\n";
 	return ;
 }
 
