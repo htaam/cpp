@@ -1,12 +1,14 @@
-NAME = sed
+NAME = harl
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp\
+		Harl.cpp
 
 OBJS = $(SRC:.c=.o)
+
 
 
 all: $(NAME)
@@ -31,7 +33,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "$(NAME) executable deleted"
+	@echo "$(NAME) executable"
 
 re: fclean all
 

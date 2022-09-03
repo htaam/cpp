@@ -10,24 +10,21 @@ SRC = main.cpp\
 		randomChump.cpp
 OBJS = $(SRC:.c=.o)
 
-RED = \033[0;31m
-GREEN = \033[0;32m
-NONE = \033[0m
 
 
 all: $(NAME)
 
 $(OBJSFD):
 	@mkdir $@
-	@echo "\t[ $(GREEN)✔$(NONE) ] objs/ directory"
+	@echo "objs/ directory"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "\t[ $(GREEN)✔$(NONE) ] $@ object"
+	@echo "$@ object"
 
 $(NAME): project $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $@
-	@echo "\t[ $(GREEN)✔$(NONE) ] $(NAME) executable"
+	@echo "$(NAME) executable created"
 
 project:
 	@echo "Checking project..."
@@ -37,7 +34,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
+	@echo "$(NAME) executable deleted"
 
 re: fclean all
 

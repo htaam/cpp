@@ -45,11 +45,11 @@ int	main(int argc, char **argv){
 	s1 = argv[2];
 	s2 = argv[3];
 	infile.open(argv[1]);
-	outfile.open(name.c_str());
 	if (!infile.is_open()) {
 		std::cout << "Unable to open file" << std::endl;
 	}
 	else {
+		outfile.open(name.c_str());
 		while (getline(infile, line))
 		{
 			if (i == 0)
