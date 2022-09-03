@@ -4,19 +4,20 @@
 
 int main()
 {
-    
-    Weapon Axe;
-    Weapon *Axe_ptr = &Axe;
-    Axe.setType("Axe");
-    std::cout << "this weapon is a " << Axe.getType()<< std::endl;
-
-    HumanA One("One", Axe);
-    One.attack();
-
-    HumanB Two("Two", NULL);
-    HumanB Three("Three", Axe_ptr);
-    Two.attack();
-    Three.attack();
-
-
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon club = Weapon("crude a spiked club");
+        HumanB jim("Jim");
+        jim.attack();
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
 }

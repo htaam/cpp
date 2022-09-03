@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 
 std::string	replace(std::string s1, std::string in, std::string s2)
 {
@@ -17,7 +18,7 @@ std::string	replace(std::string s1, std::string in, std::string s2)
 		aux2 = aux1.substr(i + s1.length(), aux1.length());
 		aux3 = aux1.substr(0, i);
 		aux3 = aux3 + s2;
-		aux4 = aux3;
+		aux4 = aux4 + aux3;
 		aux1 = aux2;
 	}
 	to_return = aux4 + aux1;
@@ -44,7 +45,7 @@ int	main(int argc, char **argv){
 	s1 = argv[2];
 	s2 = argv[3];
 	infile.open(argv[1]);
-	outfile.open(name);
+	outfile.open(name.c_str());
 	if (!infile.is_open()) {
 		std::cout << "Unable to open file" << std::endl;
 	}

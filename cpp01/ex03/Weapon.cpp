@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon( void ){
+Weapon::Weapon( std::string newName ):  type(newName){
 	
 	return ;
 }
