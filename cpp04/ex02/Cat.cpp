@@ -6,7 +6,7 @@ Cat::Cat(){
     std::cout << "Cat Default Contructor called." << std::endl;
 }
 
-Cat::Cat (const Cat &copy) : Animal(copy){
+Cat::Cat (const Cat &copy) : AAnimal(copy){
     this->type = copy.getType();
     this->own_brain = new Brain;
     *(this->own_brain) = *copy.own_brain;

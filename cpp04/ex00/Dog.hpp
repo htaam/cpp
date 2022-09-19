@@ -11,8 +11,8 @@ public:
     Dog( const Dog &copy);
 	~Dog( void ); 
 
-    Dog & operator=(const Dog &op);
 
+    void makeSound() const;
 
 };
 

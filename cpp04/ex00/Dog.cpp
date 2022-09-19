@@ -1,11 +1,12 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(){
+Dog::Dog(){
     this->type = "Dog";
     std::cout << "Dog Default Contructor called." << std::endl;
 }
 
-Dog::Dog (const Dog &copy): Animal(copy){
+Dog::Dog (const Dog &copy) : Animal(copy){
+    *this = copy;
     std::cout << "Dog Copy constructer called" << std::endl;
 }
 
@@ -13,9 +14,7 @@ Dog::~Dog (){
     std::cout << "Dog Destructor called" << std::endl;
 }
 
-Dog & Dog::operator=(const Dog& op)
-{
-    std::cout << "Dog Assignment operator overloader called" << std::endl;
-    this->type = op.type;
-    return (*this);
+
+void Dog::makeSound() const{
+    std::cout << "BARK! BARK!"<< std::endl;
 }

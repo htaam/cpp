@@ -1,12 +1,12 @@
 #include "Animal.hpp"
 
-Animal::Animal(){
+Animal::Animal(): type(""){
     
     std::cout << "Default Animal Contructor called."<< std::endl;
 }
 
 Animal::Animal (const Animal &copy){
-    this->type = copy.type;
+    *this =  copy;
     std::cout << "Copy Animal constructer called" << std::endl;
 }
 
@@ -17,19 +17,14 @@ Animal::~Animal (){
 Animal & Animal::operator=(const Animal& op)
 {
     std::cout << "Animal Assignment operator overloader called" << std::endl;
-    this->type = op.type;
+    this->type = op.getType();
     return (*this);
 }
 
-std::string Animal::getType(){
+const std::string Animal::getType() const{
     return (this->type);
 }
 
-void Animal::makeSound(){
-    if (this->getType() == "Cat")
-        std::cout << "NYA!!!!!!!!!!"<< std::endl;
-    else if (this->getType() == "Dog")
-        std::cout << "BARK! BARK!"<< std::endl;
-    else
-        std::cout << "Makes no noise!"<< std::endl;
+void Animal::makeSound() const{
+    std::cout << "Makes no noise!"<< std::endl;
 }

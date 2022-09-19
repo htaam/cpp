@@ -1,36 +1,36 @@
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(){
-    this->type =  "Cat";
+Dog::Dog(){
+    this->type = "Dog";
     this->own_brain = new Brain;
-    std::cout << "Cat Default Contructor called." << std::endl;
+    std::cout << "Dog Default Contructor called." << std::endl;
 }
 
-Cat::Cat (const Cat &copy) : Animal(copy){
-    this->type = copy.getType();
+Dog::Dog (const Dog &copy) : AAnimal(copy){
+     this->type = copy.getType();
     this->own_brain = new Brain;
     *(this->own_brain) = *copy.own_brain;
     for (int n = 0; n < 100; n++){
         this->own_brain->ideas[n] = copy.own_brain->ideas[n];
     }
-    std::cout << "Cat Copy constructer called" << std::endl;
+    std::cout << "Dog Copy constructer called" << std::endl;
 }
 
-Cat::~Cat (){
+Dog::~Dog (){
     delete this->own_brain;
-    std::cout << "Cat Destructor called" << std::endl;
+    std::cout << "Dog Destructor called" << std::endl;
 }
 
-void Cat::makeSound() const{
-    std::cout << "NYA!!!!!!!!!!"<< std::endl;
+void Dog::makeSound() const{
+    std::cout << "BARK! BARK!"<< std::endl;
 }
 
-Brain	*Cat::getBrain( void ) const
+Brain	*Dog::getBrain( void ) const
 {
 	return (this->own_brain);
 }
 
-void    Cat::addIdea(std::string idea)
+void    Dog::addIdea(std::string idea)
 {
     for (int n = 0; n < 100; n++){
         if (this->own_brain->ideas[n].size() == 0){
@@ -42,7 +42,7 @@ void    Cat::addIdea(std::string idea)
     std::cout << "ideas full"<< std::endl;
 }
 
-void    Cat::printIdeas(void){
+void    Dog::printIdeas(void){
      for (int n = 0; n < 100; n++){
         if (this->own_brain->ideas[n].size()  != 0 ){
             std::cout << n << "\t" << this->own_brain->ideas[n] << std::endl;

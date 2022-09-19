@@ -11,8 +11,7 @@ public:
     Cat( const Cat &copy);
 	~Cat( void ); 
 
-    Cat & operator=(const Cat &op);
-
+    void makeSound() const;
 
 };
 

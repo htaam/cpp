@@ -12,8 +12,10 @@ public:
     Dog( const Dog &copy);
 	~Dog( void ); 
 
-
+    Brain*	getBrain( void ) const;
     void makeSound() const;
+    void addIdea(std::string idea);
+    void printIdeas(void);
 private:
     Brain* own_brain;
 

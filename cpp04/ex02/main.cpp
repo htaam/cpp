@@ -4,9 +4,9 @@
 int main()
 {
 	{ // proving that that the classes work and can be deleted
-		const Animal* meta = new Animal();
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
+		const AAnimal* meta = new AAnimal();
+		const AAnimal* dog = new Dog();
+		const AAnimal* cat = new Cat();
 
 		std::cout << dog->getType() << std::endl;
 		std::cout << cat->getType() << std::endl;
@@ -18,9 +18,9 @@ int main()
 		delete dog;
 	}
 	std::cout << "_______________________" << std::endl;
-	{	// creates the asked Animal array and deletes it all at the end.
+	{	// creates the asked AAnimal array and deletes it all at the end.
 		int n = 4;
-		Animal* all[n];
+		AAnimal* all[n];
 
 		for (int i = 0; i < n ; i++)
 		{
@@ -75,8 +75,8 @@ int main()
 	}
 
 	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const AAnimal* j = new Dog();
+		const AAnimal* i = new Cat();
 		delete j;//should not create a leak
 		delete i;
 	}
