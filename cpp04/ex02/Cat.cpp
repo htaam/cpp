@@ -49,3 +49,5 @@ void    Cat::printIdeas(void){
         }
     }
 }
+
+void Cat::f(){};

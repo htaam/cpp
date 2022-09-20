@@ -13,6 +13,7 @@ public:
 	~Cat( void ); 
 
     void makeSound() const;
+    void f();
     Brain* getBrain( void ) const;
     void addIdea(std::string idea);
     void printIdeas(void);

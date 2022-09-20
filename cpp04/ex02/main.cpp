@@ -3,17 +3,20 @@
 
 int main()
 {
-	{ // proving that that the classes work and can be deleted
-		const AAnimal* meta = new AAnimal();
+	{ 
+		// proving that that the classes work and can be deleted
+
+		//AAnimal is now abstract meaning i cant create an object of it type.
+		//const AAnimal* meta = new AAnimal();
 		const AAnimal* dog = new Dog();
 		const AAnimal* cat = new Cat();
 
 		std::cout << dog->getType() << std::endl;
 		std::cout << cat->getType() << std::endl;
-		meta->makeSound();
+		//meta->makeSound();
 		cat->makeSound();
 		dog->makeSound();
-		delete meta;
+		//delete meta;
 		delete cat;
 		delete dog;
 	}
@@ -73,7 +76,17 @@ int main()
 		og.printIdeas();
 		og.makeSound();	
 	}
-
+	std::cout << "_______________________" << std::endl;
+	{
+		Dog dogo;
+		Cat cato;
+		dogo.addIdea("ball");
+		for (int i = 0; i < 100; i++)
+			dogo.addIdea("squirel");
+		dogo.addIdea("ball");
+		dogo.printIdeas();
+	}
+	std::cout << "_______________________" << std::endl;
 	{
 		const AAnimal* j = new Dog();
 		const AAnimal* i = new Cat();

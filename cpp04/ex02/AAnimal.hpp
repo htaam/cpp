@@ -8,7 +8,8 @@ class  AAnimal{
 public:
 	AAnimal( );
     AAnimal( const AAnimal &copy);
-	virtual ~AAnimal( void ); 
+	virtual ~AAnimal( void );
+    virtual void f() = 0;
     virtual AAnimal & operator=(const AAnimal &op);
     const std::string getType() const;
     virtual void makeSound() const;

@@ -14,6 +14,7 @@ public:
 
     Brain*	getBrain( void ) const;
     void makeSound() const;
+    void f();
     void addIdea(std::string idea);
     void printIdeas(void);
 private:
