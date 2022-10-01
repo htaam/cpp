@@ -15,6 +15,16 @@ Bureaucrat::~Bureaucrat(){
     std::cout << "Default destructor called for " << this->getName() << std::endl;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& og) : name(og.name), grade(og.grade){
+    std::cout << "Bureaucrat copy constructor called"<< std::endl;
+}
+
+Bureaucrat & Bureaucrat::operator=(const Bureaucrat &op){
+    this->grade = op.grade;
+    std::cout << "Assignement operator called. Grade was copied, Name is constant and was unchanged"<< std::endl;
+    return *this;
+}
+
 void Bureaucrat::checkGrade(){
     if (grade < this->hightestGrade)
         throw Bureaucrat::GradeTooHighException();
@@ -42,15 +52,15 @@ void Bureaucrat::incrementGrade(int n)
     checkGrade();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& og) : name(og.name), grade(og.grade){
-    std::cout << "Bureaucrat copy constructor called"<< std::endl;
+bool Bureaucrat::signForm(int MinSigGrade){
+    int sigGrade = (int)MinSigGrade;
+    if (this->getGrade() > sigGrade){
+        throw Form::GradeTooLowException();
+        return 0;
+    }
+    return 1;
 }
 
-Bureaucrat & Bureaucrat::operator=(const Bureaucrat &op){
-    this->grade = op.grade;
-    std::cout << "Assignement operator called. Grade was copied, Name is constant and was unchanged"<< std::endl;
-    return *this;
-}
 
 std::ostream	&operator<<( std::ostream &ostr,  Bureaucrat const &instance ){
     ostr << instance.getName() << ", grade " << instance.getGrade() << ".";

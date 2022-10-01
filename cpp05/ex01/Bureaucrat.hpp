@@ -2,6 +2,9 @@
 # define BUREAUCRAT_H
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     public:
@@ -12,11 +15,10 @@ class Bureaucrat{
 
         const std::string getName() const; //returns bureaucrats name
         int getGrade() const; //returns grade value
-        void checkGrade() const;//checks the grade and throws exceptions
 
         void incrementGrade(int n); //increases (lowers value) of grade by n;
         void decrementGrade(int n); //decreses (raises value) of grade by n;
-
+        bool signForm(const int MinSigGrade);//prints the name of the burecrat and the form if its sucesefully signed, returning true. if it cant sign it prints it couldnt and reuturns false;
     private:
         Bureaucrat(); // will never be used, objects must always be created with a name and grade 
         static const int lowestGrade = 150;
@@ -44,6 +46,7 @@ class Bureaucrat{
         };
 };
 
-#endif
 
 std::ostream	&operator<<( std::ostream &ostr,Bureaucrat  const  &instance );
+
+#endif

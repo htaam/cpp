@@ -13,17 +13,18 @@ class Form{
         Form & operator=(const Form &op);
         
 
-        const std::string getName();
-        bool getSig();
-        const int getGradeSig();
-        const int getGradeEx();
+        const std::string getName() const; //returns the name of the form
+        bool getSig() const; //returns a bool of the signed status
+        std::string getStringSig(); //returns a string with the signed status
+        int getGradeSig() const; //returns the value of the grade needed to Sign
+        int getGradeEx() const; // returns the value of the grade needed to execute
         
-        void beSigned(Bureaucrat B); //Bureaucrat B tries to sign the form.
+        void beSigned(Bureaucrat B); //Bureaucrat B tries to sign the form. If sucessful updates sig
     private:
         const std::string name; //name of the form
         static const int lowestGrade = 150;
         static const int hightestGrade = 1;
-        bool sig;   //if it has ben signed or not
+        bool sig;   //if it has ben signed or not. 0 for unsigned and 1 for signed
         const int gradeSig; //grade needed to sign. 
         const int gradeEx; //grade needed to execute
         void checkGrade();//checks the grade and throws exceptions
@@ -48,6 +49,6 @@ class Form{
 
 };
 
-#endif
-
 std::ostream	&operator<<( std::ostream &ostr,Form const  &instance );
+
+#endif
