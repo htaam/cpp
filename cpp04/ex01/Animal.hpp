@@ -12,6 +12,7 @@ public:
     Animal & operator=(const Animal &op);
     const std::string getType() const;
     virtual void makeSound() const;
+
 protected:
     std::string type;
 };

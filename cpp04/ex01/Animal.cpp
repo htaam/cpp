@@ -28,3 +28,4 @@ const std::string Animal::getType() const{
 void Animal::makeSound() const{
     std::cout << "Makes no noise!"<< std::endl;
 }
+

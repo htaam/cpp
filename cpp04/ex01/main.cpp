@@ -46,18 +46,36 @@ int main()
 		}
 	}
 	std::cout << "_______________________" << std::endl;
+	{
+		Dog dogo;
+		Cat cato;
+		dogo.addIdea("ball");
+		for (int i = 0; i < 100; i++)
+		{
+			(i % 2 == 0 ? dogo.addIdea("squirel") : dogo.addIdea("squirel2"));
+		}
+		dogo.addIdea("ball");
+		dogo.printIdeas();
+	}
+	std::cout << "_______________________" << std::endl;
 	{ // proving that cat is not shallow
 		Cat og;
 		og.addIdea("food");
 		og.printIdeas();
 		og.addIdea("bird");
+		std::cout << "og ideas" << std::endl;
 		og.printIdeas();
 		Cat *copy = new Cat(og);
 		og.makeSound();
+		std::cout << "copy ideas" << std::endl;
 		copy->printIdeas();
-		delete copy;
+		og.addIdea("bird2");
+		std::cout << "og ideas" << std::endl;
 		og.printIdeas();
-		og.makeSound();	
+		std::cout << "copy ideas" << std::endl;
+		copy->printIdeas();
+		copy->makeSound();	
+		delete copy;
 	}	
 	std::cout << "_______________________" << std::endl;
 	{ // proving that dog is not shallow
@@ -65,15 +83,21 @@ int main()
 		og.addIdea("food");
 		og.printIdeas();
 		og.addIdea("squirel");
+		std::cout << "og ideas" << std::endl;
 		og.printIdeas();
-		Dog *copy = new Dog(og);
+		Dog copy =  og;
 		og.makeSound();
-		copy->printIdeas();
-		delete copy;
+		std::cout << "copy ideas" << std::endl;
+		copy.printIdeas();
+		og.addIdea("squirel2");
+		std::cout << "og ideas" << std::endl;
 		og.printIdeas();
-		og.makeSound();	
+		std::cout << "copy ideas" << std::endl;
+		copy.printIdeas();
+		copy.makeSound();	
+		//delete copy;
 	}
-
+	std::cout << "_______________________" << std::endl;
 	{
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
