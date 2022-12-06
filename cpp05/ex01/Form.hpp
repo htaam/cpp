@@ -5,13 +5,25 @@
 class Bureaucrat;
 
 class Form{
-    public:
-        Form();
-        Form(const std::string &name, int gradeSig, int gradeEx);
+
+   public:
+
+        Form(const std::string &_name, int _gradeSig, int _gradeEx);
         Form( const Form& og);
-        ~Form();
+        virtual ~Form();
         Form & operator=(const Form &op);
-        
+
+    private:
+        const std::string name; //name of the form
+        const int gradeSig; //grade needed to sign. 
+        const int gradeEx; //grade needed to execute
+        bool sig;   //if it has ben signed or not. 0 for unsigned and 1 for signed
+        static const int lowestGrade = 150;
+        static const int hightestGrade = 1;
+        void checkGrade();//checks the grade and throws exceptions
+
+    public:
+
 
         const std::string getName() const; //returns the name of the form
         bool getSig() const; //returns a bool of the signed status
@@ -20,14 +32,7 @@ class Form{
         int getGradeEx() const; // returns the value of the grade needed to execute
         
         void beSigned(Bureaucrat B); //Bureaucrat B tries to sign the form. If sucessful updates sig
-    private:
-        const std::string name; //name of the form
-        static const int lowestGrade = 150;
-        static const int hightestGrade = 1;
-        bool sig;   //if it has ben signed or not. 0 for unsigned and 1 for signed
-        const int gradeSig; //grade needed to sign. 
-        const int gradeEx; //grade needed to execute
-        void checkGrade();//checks the grade and throws exceptions
+    
     public:
     
         class GradeTooHighException : public std::exception{

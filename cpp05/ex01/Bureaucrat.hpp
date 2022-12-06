@@ -1,11 +1,20 @@
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
 
-#include <iostream>
-#include "Form.hpp"
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
+// LIBS ========================================================================
+# include <iostream>
+# include <string>
+
+# include "Form.hpp"
+// =============================================================================
+
+// PROTOTYPES ==================================================================
+class Bureaucrat;
 class Form;
+// =============================================================================
 
+// CLASS DEFINITIONS ===========================================================
 class Bureaucrat{
     public:
         Bureaucrat(const std::string &name, int grade);

@@ -5,7 +5,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp\
-		Bureaucrat.cpp
+		Bureaucrat.cpp\
+		Form.cpp\
 
 OBJS = $(SRC:.c=.o)
 

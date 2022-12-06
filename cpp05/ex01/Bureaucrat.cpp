@@ -55,7 +55,6 @@ void Bureaucrat::incrementGrade(int n)
 bool Bureaucrat::signForm(int MinSigGrade){
     int sigGrade = (int)MinSigGrade;
     if (this->getGrade() > sigGrade){
-        throw Form::GradeTooLowException();
         return 0;
     }
     return 1;
