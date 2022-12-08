@@ -2,23 +2,23 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm():
-    AForm("SCF", 145 , 137), target("")
+    AForm("ShrubberyCreation", 145 , 137), target("")
 {
     std::cout << "Default constructor for ShrubberyCreationForm called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string _target): 
-    AForm("SCF", 145, 137), target(_target){
+    AForm("ShrubberyCreation", 145, 137), target(_target){
     std::cout << "Standard constructor for ShrubberyCreationForm called" << std::endl;
     std::cout << this->getName() << " was created with target -> " << target<<std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void ){
-    std::cout << "SCF deconstructor" << std::endl;
+    std::cout << "ShrubberyCreation deconstructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm &copy):
-    AForm("SCF", 145, 137), target(copy.get_target())
+    AForm("ShrubberyCreation", 145, 137), target(copy.get_target())
 {
     *this = copy;
 }

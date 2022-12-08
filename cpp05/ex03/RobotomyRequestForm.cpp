@@ -2,23 +2,23 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm():
-    AForm("RRF", 72 , 45), target("")
+    AForm("RobotomyRequest", 72 , 45), target("")
 {
     std::cout << "Default constructor for RobotomyRequestForm called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string _target): 
-    AForm("RRF", 72, 45), target(_target){
+    AForm("RobotomyRequest", 72, 45), target(_target){
     std::cout << "Standard constructor for RobotomyRequestForm called" << std::endl;
     std::cout << this->getName() << " was created with target -> " << target<<std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void ){
-    std::cout << "RRF deconstructor" << std::endl;
+    std::cout << "RobotomyRequest deconstructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &copy):
-    AForm("RRF", 72, 45), target(copy.get_target())
+    AForm("RobotomyRequest", 72, 45), target(copy.get_target())
 {
     *this = copy;
 }

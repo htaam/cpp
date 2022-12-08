@@ -2,23 +2,23 @@
 #include <cstdlib>
 
 PresidentialPardonForm::PresidentialPardonForm():
-    AForm("PPF", 25 , 5), target("")
+    AForm("PresidentialPardon", 25 , 5), target("")
 {
     std::cout << "Default constructor for PresidentialPardonForm called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string _target): 
-    AForm("PPF", 25, 5), target(_target){
+    AForm("PresidentialPardon", 25, 5), target(_target){
     std::cout << "Standard constructor for PresidentialPardonForm called" << std::endl;
     std::cout << this->getName() << " was created with target -> " << target<<std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void ){
-    std::cout << "PPF deconstructor" << std::endl;
+    std::cout << "PresidentialPardon deconstructor" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm &copy):
-    AForm("PPF", 25, 5), target(copy.get_target())
+    AForm("PresidentialPardon", 25, 5), target(copy.get_target())
 {
     *this = copy;
 }
