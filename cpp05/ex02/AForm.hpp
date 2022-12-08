@@ -24,15 +24,14 @@ class AForm{
 
     public:
 
-        virtual void execute(Bureaucrat const & executor) const; //checks and executes the form on the target if the bureacrat is valid and the form is signed.    
         const std::string getName() const; //returns the name of the AForm
         bool getSig() const; //returns a bool of the signed status
         std::string getStringSig(); //returns a string with the signed status
         int getGradeSig() const; //returns the value of the grade needed to Sign
         int getGradeEx() const; // returns the value of the grade needed to execute
-        
         void beSigned(Bureaucrat B); //Bureaucrat B tries to sign the AForm. If sucessful updates sig
-    
+        void check_executability( const Bureaucrat &executor )const;//checkes if executor can execute this form;
+        virtual void	execute( const Bureaucrat &executor ) const = 0;
     public:
     
         class GradeTooHighException : public std::exception{
@@ -51,6 +50,16 @@ class AForm{
                     return ("The grade is too low");
                 }
         };
+        class CantExecuteForm : public std::exception
+            {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return ("The form cannot be executed, either because it wasn't sign"
+                            "ed, or because the executor has a rank too low");
+                }
+            };
+
 
 };
 

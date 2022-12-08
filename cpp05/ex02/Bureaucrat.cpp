@@ -12,7 +12,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name), grade(gr
 
 
 Bureaucrat::~Bureaucrat(){
-    std::cout << "Default destructor called for " << this->getName() << std::endl;
+    std::cout << "Default Bureucrat destructor called for " << this->getName() << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& og) : name(og.name), grade(og.grade){
@@ -58,6 +58,18 @@ bool Bureaucrat::signAForm(int MinSigGrade){
         return 0;
     }
     return 1;
+}
+
+bool Bureaucrat::executeAForm(AForm const & form){
+    try{
+        form.execute(*this);
+        std::cout << this->name << " executes form " << form.getName() << std::endl;
+        return (true);
+    }
+    catch (AForm::CantExecuteForm &e){
+        std::cout << e.what() << std::endl;
+        return (false);
+    }
 }
 
 

@@ -11,7 +11,7 @@ AForm::AForm(const std::string &_name, int _gradeSig, int _gradeEx):name(_name),
 }
 
 AForm::~AForm(){
-    std::cout << "Default destructor called for "<< this->getName() << std::endl;
+    std::cout << "Default AForm destructor called for "<< this->getName() << std::endl;
 }
 
 AForm::AForm(const AForm& og):name(og.name), gradeSig(og.gradeSig), gradeEx(og.gradeEx), sig(og.sig){
@@ -58,6 +58,14 @@ int AForm::getGradeSig() const{
     return this->gradeSig;
 }
 
+void	AForm::check_executability( const Bureaucrat &executor )const
+{
+	if (!this->sig || executor.getGrade() > this->gradeEx)
+		throw AForm::CantExecuteForm();
+}
+
+
+
 void AForm::beSigned(Bureaucrat B){
     
         if (getSig()){
@@ -68,14 +76,15 @@ void AForm::beSigned(Bureaucrat B){
                 if (!(B.signAForm(this->getGradeSig()))){     
                     throw AForm::GradeTooLowException();
                 }
+                std::cout << B.getName() << " signed " << this->getName() << std::endl;
+                sig = 1;
             }    
             catch (const std::exception& e)
             {
                                    std::cout << B.getName() << " could not sign " << this->getName() <<" becouse grade too low" << std::endl;
                 sig = 0;
             }
-            std::cout << B.getName() << " signed " << this->getName() << std::endl;
-            sig = 1;
+            
         }
 }
 

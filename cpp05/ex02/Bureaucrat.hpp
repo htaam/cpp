@@ -25,7 +25,7 @@ class Bureaucrat{
         const std::string getName() const; //returns bureaucrats name
         int getGrade() const; //returns grade value
 
-        void executeForm(AForm const & form);
+        bool executeAForm(AForm const & form);//atempts to execute the form, and returns true if sucessefull and false if not
         void incrementGrade(int n); //increases (lowers value) of grade by n;
         void decrementGrade(int n); //decreses (raises value) of grade by n;
         bool signAForm(const int MinSigGrade);//prints the name of the burecrat and the AForm if its sucesefully signed, returning true. if it cant sign it prints it couldnt and reuturns false;
