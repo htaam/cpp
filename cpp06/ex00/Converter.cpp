@@ -140,6 +140,29 @@ void Converter::print_type(){
     std::cout << this->type <<std::endl;
 }
 
+void Converter::print_char(){
+    switch (this->type)
+    {
+    case 1:
+        std::cout << "char: " << this->char_value << std::endl;
+        break;
+    case 2:
+        if (canConvert_char(this->int_value))
+            std::cout << "char: " << static_cast<char>(this->int_value) << std::endl;
+        break;
+    case 3:
+        if (canConvert_char(this->float_value))
+            std::cout << "char: " << static_cast<char>(this->float_value) << std::endl;
+        break;
+    case 4:
+        if (canConvert_char(this->double_value))
+            std::cout << "char: " << static_cast<char>(this->double_value) << std::endl;
+        break;
+    default:
+        break;
+    }
+}
+
 void Converter::print_int(){
     switch(this->type)
     {
@@ -178,14 +201,59 @@ void Converter::print_float(){
         std::cout << "float: " << static_cast<float>(this->int_value) << ".0f" << std::endl;
         break;
     case 3:
-        if(this->float_value - static_cast<int>(this->float_value))
+        if(this->float_value - static_cast<int>(this->float_value) == 0.0)
+            std::cout << "float: " << this->float_value << ".0f" <<std::endl;
+        else    
+            std::cout << "float: " << this->float_value << "f" <<std::endl;
+        break;
+    case 4:
+        if (canConvertToFloat(this->double_value)){
+            if(this->double_value - static_cast<int>(this->double_value) == 0.0)
+            std::cout << "float: " << static_cast<float>(this->double_value) << ".0f" <<std::endl;
+            else    
+            std::cout << "float: " << static_cast<float>(this->double_value) << "f" <<std::endl;
+        }
+        else
+            std::cout << "float: impossible" << std::endl;
+        break;
     default:
         break;
     }
 }
 
+void Converter::print_double()
+{
+    std::cout <<"double: ";
+    switch (this->type)
+    {
+        case (1):
+            std::cout << static_cast<double>(this->char_value) << ".0"<< std::endl;
+            break;
+        case (2):
+            std::cout << static_cast<double>(this->int_value) << ".0"<<std::endl;
+            break;
+        case (3):
+            if(this->float_value - static_cast<int>(this->float_value) == 0.0)
+                std::cout << static_cast<double>(this->float_value) << ".0" <<std::endl;
+            else    
+                std::cout << static_cast<double>(this->float_value) <<std::endl;
+            break;
+        case (4):
+            if(this->double_value - static_cast<int>(this->double_value) == 0.0)
+                std::cout << this->double_value << ".0" <<std::endl;
+            else    
+                std::cout << this->double_value <<std::endl;
+            break;
+        default:
+            break;
+    }
+}
+
 void Converter::print_message(){
+    this->print_char();
     this->print_int();
+    this->print_float();
+    this->print_double();
 }
 
 

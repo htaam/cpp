@@ -14,6 +14,5 @@ int main(int argc, char **argv){
     Converter stuff(argv[1]);
     stuff.is_type();
     stuff.set_values();
-    stuff.print_type();
     stuff.print_message();
 }
