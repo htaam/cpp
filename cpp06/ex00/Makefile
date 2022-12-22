@@ -5,7 +5,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp\
-		Converter.cpp
+		Converter.cpp\
+		utils.cpp
 
 OBJS = $(SRC:.c=.o)
 

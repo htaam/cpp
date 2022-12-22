@@ -3,5 +3,8 @@
 
 
 bool	canConvertToInt( double number );
+bool	canConvertToFloat( double number );
+
+
 
 #endif

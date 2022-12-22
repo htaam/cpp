@@ -1,4 +1,6 @@
 #include "Converter.hpp"
+#include "utils.hpp"
+
 
 Converter::Converter(){ //standart constructor. never used.
     std::cout << "Constructor called" << std::endl;
@@ -138,7 +140,54 @@ void Converter::print_type(){
     std::cout << this->type <<std::endl;
 }
 
-void Converter::print_int(){}
+void Converter::print_int(){
+    switch(this->type)
+    {
+        case 1:
+            std::cout << "int: " << static_cast<int>(this->char_value) << std::endl;
+            break;
+        case 2:
+            std::cout << "int: " << this->int_value << std::endl;
+            break;
+        case 3:
+            if (canConvertToInt(this->float_value)){
+                std::cout << "int: " << static_cast<int>(this->float_value) << std::endl;
+            }
+            else {
+                std::cout << "int: impossible" << std::endl;}
+            break;
+        case 4:
+            if (canConvertToInt(this->double_value)){
+                std::cout << "int: " << static_cast<int>(this->double_value) << std::endl;
+            }
+            else {
+                std::cout << "int: impossible" << std::endl;}
+            break;
+        default:
+            break;
+    }
+}
+
+void Converter::print_float(){
+    switch (this->type)
+    {
+    case 1:
+        std::cout << "float: " << static_cast<float>(this->char_value) << ".0f"<< std::endl;
+        break;
+    case 2:
+        std::cout << "float: " << static_cast<float>(this->int_value) << ".0f" << std::endl;
+        break;
+    case 3:
+        if(this->float_value - static_cast<int>(this->float_value))
+    default:
+        break;
+    }
+}
+
+void Converter::print_message(){
+    this->print_int();
+}
+
 
 
 
