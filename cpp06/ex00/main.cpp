@@ -16,3 +16,7 @@ int main(int argc, char **argv){
     stuff.set_values();
     stuff.print_message();
 }
+
+/*
+static_cast is the first cast you should attempt to use.
+It does things like implicit conversions between types (such as int to float, or pointer to void*), and it can also call explicit conversion functions (or implicit ones).*/
