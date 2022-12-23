@@ -9,23 +9,33 @@ class Array{
 public:
     
     Array<T>(void):the_size(0), array(NULL){
+        the_size = 0;
+        std::cout <<" the size is : " << this->size()<<std::endl;
         std::cout << "Empty constructor called" << std::endl;
     }
     
     Array<T>( const unsigned int size): the_size(size){
-        std::cout << "Size constructor called" << std::endl;
+        std::cout << "Constructor called" << std::endl;
         if (size < 0)
             throw std::overflow_error("Invalid size");
+        std::cout <<" the size is : " << this->size()<<std::endl;
         this->array = new T[size];
     }
     
     Array<T>( const Array<T> &og ){
-		std::cout << "Copy constructor called" << std::endl;
-		*this = og;
+		std::cout<<"Copy constructor" << std::endl;
+        if (this == &og)
+            return;
+        this->the_size = og.size();
+        this->array = new T[this->the_size];
+        for (int i = 0; i < this->the_size; i++)
+         this->array[i] = og[i];
+        
 	}
     
-    ~Array<T>( void ){
+    virtual ~Array<T>( void ){
 		std::cout << "Destructor called" << std::endl;
+        std::cout << "Size was :" << this->size()<< std::endl;
 		if (this->the_size > 0)
 			delete [] this->array;
 	}
@@ -34,9 +44,9 @@ public:
         std::cout << "Assignment overload called" << std::endl;
         if (this == &og)
             return (*this);
-        /*if (this->size > 0){
-           delete [] this->array;
-        }*/
+        if (this->size() > 0){
+            delete [] this->array;
+        }
         this->the_size = og.size();
         this->array = new T[this->the_size];
         for (int i = 0; i < this->the_size; i++)

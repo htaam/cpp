@@ -16,6 +16,10 @@ int main(int, char**)
             numbers[i] = value;
             mirror[i] = value;
         }
+        {
+            Array<int> teste(1);
+            teste = numbers;
+        }
         //SCOPE
         std::cout << "SCOPE" << std::endl;
         {
